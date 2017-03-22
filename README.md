@@ -6,5 +6,6 @@ A simple kafka producer based on Meetup open data
 
 ## Monitoring output on kafka
   `cd path/to/your/kafka/installation`
+  
   `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test`
 
