@@ -15,7 +15,7 @@ A simple kafka producer based on Meetup open data
   ```
 
   ### Run
-  `java -cp target/meetup-producer-1.0-SNAPSHOT.jar com.wconti.app.Producer`
+  `java -cp target/meetup-producer.jar com.wconti.app.Producer`
 
   ### Monitoring output on kafka
   
