@@ -21,7 +21,11 @@ import java.util.Properties;
  */
 public class Producer {
     public static void main(String[] args) throws MalformedURLException,IOException{
-        
+
+        if (args.length != 1) {
+            throw new IllegalArgumentException("You must specify your kafka broker IP ex : localhost:9092");
+        }
+
         URL url = new URL("http://stream.meetup.com/2/rsvps");
         URLConnection connection = url.openConnection();
 
@@ -29,7 +33,7 @@ public class Producer {
         JsonParser parser =  jsonFactory.createParser(connection.getInputStream());
 
  		Properties props = new Properties();
-		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
+		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,args[0]);
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
 
