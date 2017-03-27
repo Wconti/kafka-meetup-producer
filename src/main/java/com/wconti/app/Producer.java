@@ -21,6 +21,7 @@ import java.util.Properties;
  */
 public class Producer {
     public static void main(String[] args) throws MalformedURLException,IOException{
+        
         URL url = new URL("http://stream.meetup.com/2/rsvps");
         URLConnection connection = url.openConnection();
 
@@ -37,7 +38,7 @@ public class Producer {
         while(parser.nextToken()!=null)
         {
             String record = parser.readValueAsTree().toString();
-            ProducerRecord<String,String> producerRecord = new ProducerRecord<String, String>("test",record);
+            ProducerRecord<String,String> producerRecord = new ProducerRecord<String, String>("meetup",record);
             kafkaProducer.send(producerRecord);
         }
 
